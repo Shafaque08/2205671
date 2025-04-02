@@ -1,0 +1,13 @@
+question1/
+├── src/
+│   ├── server.ts
+│   ├── types.ts
+│   ├── dataService.ts
+│   └── routes/
+│       ├── users.ts
+│       └── posts.ts
+├── package.json
+├── tsconfig.json
+├── .gitignore
+└── README.md
+
