@@ -1,0 +1,19 @@
+// Define types for the data structures
+export interface User {
+  userId: string;
+  name: string;
+  postCount: number;
+}
+
+export interface Post {
+  postId: string;
+  userId: string;
+  content: string;
+  commentCount: number;
+}
+
+export interface Comment {
+  id: string;
+  postId: string;
+  content: string;
+}
