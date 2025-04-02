@@ -1,0 +1,23 @@
+import { Post } from '../types';
+
+interface PostCardProps {
+  post: Post;
+}
+
+const PostCard: React.FC<PostCardProps> = ({ post }) => {
+  // Random placeholder image for post
+  const postImage = `https://picsum.photos/300?random=${post.postId}`;
+
+  return (
+    <div className="bg-white p-4 rounded-lg shadow-md">
+      <img src={postImage} alt="Post" className="w-full h-48 object-cover rounded-md mb-4" />
+      <h3 className="text-lg font-semibold">Post ID: {post.postId}</h3>
+      <p className="text-gray-600">{post.content}</p>
+      {post.commentCount !== undefined && (
+        <p className="text-gray-500 mt-2">Comments: {post.commentCount}</p>
+      )}
+    </div>
+  );
+};
+
+export default PostCard;
