@@ -1,0 +1,23 @@
+import { Router } from 'express';
+import { getPosts } from '../dataService';
+
+const router = Router();
+
+/**
+ * GET /posts?type=latest|popular
+ * Returns the latest 5 posts or the posts with the maximum number of comments
+ */
+router.get('/', (req, res) => {
+  try {
+    const type = req.query.type as string;
+    if (!type || !['latest', 'popular'].includes(type)) {
+      return res.status(400).json({ error: 'Invalid type parameter. Use "latest" or "popular".' });
+    }
+    const posts = getPosts(type);
+    res.json(posts);
+  } catch (error) {
+    res.status(500).json({ error: error instanceof Error ? error.message : 'Internal server error' });
+  }
+});
+
+export default router;
