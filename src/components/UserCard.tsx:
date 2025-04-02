@@ -1,0 +1,22 @@
+import { User } from '../types';
+
+interface UserCardProps {
+  user: User;
+}
+
+const UserCard: React.FC<UserCardProps> = ({ user }) => {
+  // Random placeholder image for user
+  const userImage = `https://picsum.photos/200?random=${user.userId}`;
+
+  return (
+    <div className="bg-white p-4 rounded-lg shadow-md flex items-center space-x-4">
+      <img src={userImage} alt="User" className="w-16 h-16 rounded-full" />
+      <div>
+        <h3 className="text-lg font-semibold">{user.name}</h3>
+        <p className="text-gray-600">Posts: {user.postCount}</p>
+      </div>
+    </div>
+  );
+};
+
+export default UserCard;
