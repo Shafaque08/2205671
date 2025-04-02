@@ -1,0 +1,4 @@
+mkdir question1
+cd question1
+npm init -y
+npm install express axios typescript @types/express @types/node ts-node
